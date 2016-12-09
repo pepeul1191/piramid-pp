@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{% block title %}{{helper.get('title')}}{% endblock %}</title>
-        <meta charset="UTF-8">
-        <link rel="icon" type="image/x-icon" href="{{helper.get('STATICS_URL')}}assets/site/img/favicon.ico">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Inicio CSS-->
-        <link href="{{helper.get('STATICS_URL')}}bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="{{helper.get('STATICS_URL')}}bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <link href="{{helper.get('STATICS_URL')}}assets/site/css/styles.css" rel="stylesheet" type="text/css"/>
-        {% block stylesheet %}{% endblock %}
-        <!-- Fin CSS-->
-    </head>
+<head>
+  <title>{% block title %}Gestión de la Seguridad de la Información{% endblock %}</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="{{helper.get('STATICS_URL')}}assets/site/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Inicio CSS-->
+  <link href="{{helper.get('STATICS_URL')}}bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="{{helper.get('STATICS_URL')}}bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  <link href="{{helper.get('STATICS_URL')}}assets/site/css/styles.css" rel="stylesheet" type="text/css"/>
+  {% block stylesheet %}{% endblock %}
+  <!-- Fin CSS-->
+</head>
     <body>
         <!-- Inicio Navbar1-->
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -46,9 +46,9 @@
                 <ul class="list-inline pull-right">
                     {% for modulo in helper.get('modulos') %}
                         {%if modulo["nombre"] == helper.get('activo')%}
-                            <li class="activo"><a href="{{ modulo['url']}}">{{ modulo["nombre"]}}</a></li>
+                            <li class="activo"><a href="{{ helper.get('BASE_URL')}}{{ modulo['url']}}">{{ modulo["nombre"]}}</a></li>
                         {%else%}
-                            <li><a href="{{ modulo['url']}}">{{ modulo["nombre"]}}</a></li>
+                            <li><a href="{{ helper.get('BASE_URL')}}{{ modulo['url']}}">{{ modulo["nombre"]}}</a></li>
                         {%endif%}
                     {% endfor %}
                 </ul>
@@ -58,10 +58,22 @@
       <!-- Fin Navbar2-->
       <!-- Inicio App-->
       <div class="container-fluid">
-          <!-- Inicio Yield-->
-          {% block content %}
-          {% endblock %}
-          <!-- Fin Yield-->
+          <div class="col-md-2" id="menu-izq">
+            {% for menu in helper.get('menus') %}
+                <h5>{{ menu["subtitulo"]}}</h5>
+                <ul>
+                {% for item in menu["items"] %}
+                    <li><a href="{{ helper.get('BASE_URL')}}{{ item['url']}}">{{ item["item"]}}</a></li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+          </div>
+          <div class="col-md-10" id="workspace">
+              <!-- Inicio Yield-->
+              {% block content %}
+              {% endblock %}
+              <!-- Fin Yield-->
+          </div>
       </div>
       <!-- FinApp-->
         <!-- Inicio Footer-->
@@ -74,8 +86,8 @@
             <div class="row desarrollado">
                 <div class="col-md-12">
                     <i class="fa fa-car" aria-hidden="true"></i><b>2015 Software Web Perú E.I.R.L. (<a href="http://softweb.pe">Ir</a>)</b>&nbsp;&nbsp;&nbsp; Todos los derechos reservados
-                    <a href="{{ helper.get('BASE_URL')}}terminos" class="pull-right">Términos de Uso</a>
-                    <a href="{{ helper.get('BASE_URL')}}privacidad" class="pull-right">Política de Privacidad</a>
+                    <a href="{{ helper.get('BASE_URL')}}privacidad" class="pull-right">Términos de Uso</a>
+                    <a href="{{ helper.get('BASE_URL')}}politica" class="pull-right">Política de Privacidad</a>
                 </div>
             </div>
         </footer>

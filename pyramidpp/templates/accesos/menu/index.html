@@ -1,5 +1,38 @@
-{% extends "pyramidpp:templates/layouts/blank.html" %}
+{% extends "pyramidpp:templates/layouts/application.html" %}
+{% block title %}Accesos/ Menú / Maestros{% endblock %}
+{% block stylesheet %}
+	<link href="{{helper.get('STATICS_URL')}}swp/css/mootools.grid.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
 {% block content %}
-<p>Some random paragraph.</p>
-{{helper.get('STATICS_URL')}}
+	<div class="row">
+		<h2 class="titulo">Accesos / Menú</h2>
+		<div class="row borde-bajo">
+			<h5 class="subtitulo">Edite los elementos que conforman el menú del sistema</h5>
+		</div>
+	</div>
+	</br>
+	<div class="row">
+		<div class="col-md-3 workspace">
+			<label class="texto-der oculto" id="txtMensajeRpta"></label>
+			<table class="list issues" style="" id="tablaModulos"></table>
+		</div>
+		<div class="col-md-3 workspace">
+			<label id="id_modulo" class="oculto"></label>
+			<label class="texto-der oculto" id="txtMensajeRpta"></label>
+			<table class="list issues" style="" id="tablaSubtitulos"></table>
+		</div>
+		<div class="col-md-5 workspace">
+			<label id="id_subtitulo" class="oculto"></label>
+			<label class="texto-der oculto" id="txtMensajeRpta"></label>
+			<table class="list issues" style="" id="tablaItems"></table>
+		</div>
+	</div>
+{% endblock %}
+{% block javascript %}
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.dao.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.form.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.observer.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.grid.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.chain.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}assets/accesos/menu/js/index.js" type="text/javascript"></script>
 {% endblock %}

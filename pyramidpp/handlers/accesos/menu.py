@@ -14,10 +14,13 @@ class Menu(object):
 
     @action(name='index', request_method='GET')
     def index(self):
-       helper = Helper()
-       response = render_to_response('../../templates/accesos/menu/index.html', {'helper':helper})
-		#response.content_type = 'text/plain'
-       return response
+        helper = Helper()
+        helper.set('modulos', json.loads(helper.listar_modulos()))
+        helper.set('menus', json.loads(helper.listar_menu("Accesos")))
+        helper.set('activo', 'Accesos')
+        response = render_to_response('../../templates/accesos/menu/index.html', {'helper':helper})
+		 #response.content_type = 'text/plain'
+        return response
 
     @action(name='bye', request_method='GET')
     def bye(self):

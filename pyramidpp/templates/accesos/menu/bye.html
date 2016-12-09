@@ -1,5 +1,17 @@
-{% extends "pyramidpp:templates/layouts/home.html" %}
+{% extends "pyramidpp:templates/layouts/blank.html" %}
+{% block title %}Accesos/ Menú / Maestros{% endblock %}
+	<link href="{{helper.get('STATICS_URL')}}swp/css/mootools.grid.css" rel="stylesheet" type="text/css"/>
+{% block stylesheet %}
+{% endblock %}
 {% block content %}
-<p>Some random paragraph.</p>
-{{helper.get('STATICS_URL')}}
+	<p>Some random paragraph.</p>
+	{{helper.get('STATICS_URL')}}
+{% endblock %}
+{% block javascript %}
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.dao.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.form.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.observer.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.grid.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}swp/js/mootools.chain.js" type="text/javascript"></script>
+	<script src="{{helper.get('STATICS_URL')}}assets/seguridad/maestros/js/ubicaciones.js" type="text/javascript"></script>
 {% endblock %}
