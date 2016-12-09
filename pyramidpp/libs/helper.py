@@ -9,7 +9,7 @@ import json
 class Helper:
 	def __init__(self):
 		self.diccionario = {
-			'BASE_URL': 'http://localhost:8888/',
+			'BASE_URL': 'http://localhost:6543/',
 			'STATICS_URL' : 'http://localhost:8001/dashboard/',
 			'accesos' : 'http://127.0.0.1:5001/',
 			'maestros' : 'http://127.0.0.1:3001/',
