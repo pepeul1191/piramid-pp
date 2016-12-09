@@ -1,0 +1,3 @@
+[run]
+source = pyramidpp
+omit = pyramidpp/test*
