@@ -18,7 +18,9 @@ Description: PyramidPP README
         
         - $VENV/bin/pserve development.ini
         
+        GUNICORN
         
+        $ gunicorn --paste development.ini --reload
         
         0.0
         ---
